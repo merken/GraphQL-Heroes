@@ -1,3 +1,4 @@
+using System.Linq;
 using GraphQL.Types;
 using HeroApp.Data.Domain;
 using HeroApp.Data.Model;
@@ -19,7 +20,7 @@ namespace Heroes.Api.GraphQL
                 resolve: async context =>
                 {
                     var id = context.GetArgument<int>("id");
-                    return await dbContext.Heroes.AsNoTracking().FirstAsync(h => h.Id == id);
+                    return await dbContext.Heroes.AsNoTracking().Include(h => h.SecretIdentity).FirstAsync(h => h.Id == id);
                 }
             );
 
@@ -27,7 +28,9 @@ namespace Heroes.Api.GraphQL
                 "heroes",
                 resolve: async context =>
                 {
-                    return await dbContext.Heroes.AsNoTracking().ToListAsync();
+                   //if(context.SubFields.Any(f=>f.Key))
+                    //Find out what the fields are and dynamically build up the query
+                    return await dbContext.Heroes.AsNoTracking().Include(h => h.SecretIdentity).ToListAsync();
                 }
             );
 

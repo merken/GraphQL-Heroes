@@ -21,6 +21,17 @@ namespace Heroes.Api.GraphQL
             Field(h => h.Id);
             Field(h => h.Name);
             Field(h => h.Description);
+            //Already loaded via .Include (EF)
+            Field<SecretIdentityType, SecretIdentity>("secretIdentity").Resolve(ctx => ctx.Source.SecretIdentity);
+        }
+    }
+
+    public class SecretIdentityType : ObjectGraphType<SecretIdentity>, IDomainType
+    {
+        public SecretIdentityType()
+        {
+            Field(h => h.FirstName);
+            Field(h => h.LastName);
         }
     }
 

@@ -1,0 +1,3 @@
+<div *ngFor="let recentItem of recents$ | async">
+  <a [routerLink]="[recentItem.link]">{{recentItem.title}}</a>
+</div>

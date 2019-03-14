@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RecentsService } from './recents/recents.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HeroesApp';
+  recentsService: RecentsService;
+
+  constructor(recentsService: RecentsService) {
+    this.recentsService = recentsService;
+  }
 }

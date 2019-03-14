@@ -1,0 +1,33 @@
+body {
+    margin: 40px;
+}
+
+.main {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 33% 33% 33%;
+    background-color: #fff;
+    color: #444;
+}
+
+.component {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.header {
+    grid-column: 1 / span 2;
+}
+
+.recents {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+}
+
+.content {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+}
