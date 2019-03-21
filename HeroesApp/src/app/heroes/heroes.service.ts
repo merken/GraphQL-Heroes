@@ -26,10 +26,31 @@ export class HeroesService {
                 heroes {
                     id,
                     name,
-                    description
+                    description,
+                    secretIdentity{
+                        firstName,
+                        lastName
+                    }
                 }
             }`
         }).pipe(
             map(g => <Array<Hero>>g.heroes));
+    }
+
+    getHero(id:number): Observable<Hero> {
+        return this.httpService.makeGraphQLGetRequest(<GraphQLRequestOptions>{
+            query: `{
+                hero(id:${id}) {
+                    id,
+                    name,
+                    description,
+                    secretIdentity{
+                        firstName,
+                        lastName
+                    }
+                }
+            }`
+        }).pipe(
+            map(g => <Hero>g.hero));
     }
 }

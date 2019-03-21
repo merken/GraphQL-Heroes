@@ -1,0 +1,47 @@
+dl {
+    margin-top: 0;
+    margin-bottom: @line-height-computed;
+  }
+  dt,
+  dd {
+    line-height: @line-height-base;
+  }
+  dt {
+    font-weight: bold;
+  }
+  dd {
+    margin-left: 0; // Undo browser default
+  }
+  
+  .dl-horizontal {
+    dd {
+      &:extend(.clearfix all); // Clear the floated `dt` if an empty `dd` is present
+    }
+  
+    @media (min-width: @dl-horizontal-breakpoint) {
+      dt {
+        float: left;
+        width: (@dl-horizontal-offset - 20);
+        clear: left;
+        text-align: right;
+        .text-overflow();
+      }
+      dd {
+        margin-left: @dl-horizontal-offset;
+      }
+    }
+  }
+/*FlexBox*/
+.flex-container-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-container-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-item {
+    flex: 1 1 auto;
+}

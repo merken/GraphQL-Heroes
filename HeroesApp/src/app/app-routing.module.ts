@@ -6,9 +6,11 @@ import { TeamsComponent } from './teams/teams.component';
 import { WeaponsComponent } from './weapons/weapons.component';
 import { AbilitiesComponent } from './abilities/abilities.component';
 import { MoviesComponent } from './movies/movies.component';
+import { HeroComponent } from './hero/hero.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'heroes/:id', component: HeroComponent },
   { path: 'heroes', component: HeroesComponent },
   { path: 'movies', component: MoviesComponent },
   { path: 'abilities', component: AbilitiesComponent },

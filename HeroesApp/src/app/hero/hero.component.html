@@ -1,0 +1,65 @@
+<mat-list>
+  <mat-list-item>
+    <h2>{{hero.name}}</h2>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <div>
+      <dl class="dl-horizontal">
+        <dt>
+          Name
+        </dt>
+        <dd>
+          {{hero.name}}
+        </dd>
+        <dt>
+          Description
+        </dt>
+        <dd>
+          {{hero.description}}
+        </dd>
+        <dt>
+          Also Known As
+        </dt>
+        <dd>
+          <span *ngIf="hero.secretIdentity">{{hero.secretIdentity.firstName}} {{hero.secretIdentity.lastName}}</span>
+        </dd>
+        <dt>
+          Advantage Points
+        </dt>
+        <dd>
+          TODO
+        </dd>
+      </dl>
+    </div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <div class="flex-container-row">
+      <div class="flex-item">
+        <h3>Abilities</h3>
+        <div class="flex-container-col">
+          <div class="flex-item" *ngFor="let ability of hero.abilities">
+            {{ability.name}}
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <h3>Weapons</h3>
+        <div class="flex-container-col">
+          <div class="flex-item" *ngFor="let weapon of hero.weapons">
+            {{weapon.name}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex-item">
+      <h3>Movies</h3>
+      <div class="flex-container-col">
+        <div class="flex-item" *ngFor="let movie of hero.movies">
+          {{movie.title}}
+        </div>
+      </div>
+    </div>
+  </mat-list-item>
+</mat-list>

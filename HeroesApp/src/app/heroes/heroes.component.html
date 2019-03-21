@@ -1,3 +1,29 @@
-<div *ngFor="let hero of heroes">
-  <div>{{hero.name}}</div>
-</div>
+<mat-table [dataSource]="heroes" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> Id. </mat-header-cell>
+    <mat-cell *matCellDef="let hero"> {{hero.id}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let hero"> {{hero.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-cell *matCellDef="let hero"> {{hero.description}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="secretIdentity">
+    <mat-header-cell *matHeaderCellDef> Secret Identity </mat-header-cell>
+    <mat-cell *matCellDef="let hero"><span *ngIf="hero.secretIdentity !== null"> {{hero.secretIdentity.firstName}} {{hero.secretIdentity.lastName}} </span></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="details">
+    <mat-header-cell *matHeaderCellDef> Details </mat-header-cell>
+    <mat-cell *matCellDef="let hero"><a href="heroes/{{hero.id}}">Details</a></mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['name', 'description', 'secretIdentity', 'details'];"></mat-row>
+</mat-table>

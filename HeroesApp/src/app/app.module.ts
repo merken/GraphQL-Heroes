@@ -18,6 +18,9 @@ import { HttpService } from './services/http.service';
 import { HttpClient, HttpHandler, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeroesService } from './heroes/heroes.service';
 import { ContentTypeInterceptor } from './interceptors/contenttype.interceptor';
+import { MaterialModule } from '../material/material.module';
+import { MovieComponent } from './movie/movie.component';
+import { HeroComponent } from './hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -25,16 +28,19 @@ import { ContentTypeInterceptor } from './interceptors/contenttype.interceptor';
     HomeComponent,
     HeaderComponent,
     RecentsComponent,
+    HeroComponent,
     HeroesComponent,
     MoviesComponent,
     AbilitiesComponent,
     WeaponsComponent,
-    TeamsComponent
+    TeamsComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ],
   providers: [
     HttpClient,
